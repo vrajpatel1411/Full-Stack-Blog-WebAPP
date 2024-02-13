@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import path from "path";
 const Links: React.FC = () => {
   const Links: Array<{ name: string; path: string }> = [
     {
@@ -21,8 +22,9 @@ const Links: React.FC = () => {
     },
   ];
   const pathname = usePathname();
+  var isSession = true;
   let isactive;
-  var isadmin = true;
+  var isadmin = false;
   return (
     <div className="flex-1 flex flex-row items-center justify-end gap-[14px]">
       {Links.map((link, index) => {
@@ -32,8 +34,8 @@ const Links: React.FC = () => {
           <Link
             className={
               isactive
-                ? " w-fit text-center p-2 rounded-full font-bold bg-white "
-                : " "
+                ? " w-fit text-center p-[12px] rounded-full font-bold bg-white cursor-pointer "
+                : " cursor-pointer"
             }
             key={index}
             href={link.path}>
@@ -46,20 +48,35 @@ const Links: React.FC = () => {
         <Link href="/admin">
           <button
             className={
-              isactive
-                ? " w-fit text-center p-2 rounded-xl font-bold bg-white "
-                : " "
+              pathname.endsWith("/admin")
+                ? " w-fit text-center p-[12px] rounded-xl font-bold bg-white  cursor-pointer "
+                : "cursor-pointer "
             }>
             Admin
           </button>
         </Link>
       ) : (
-        <Link href="/admin">
+        ""
+      )}
+
+      {isSession ? (
+        <Link href="/login">
           <button
             className={
-              isactive
-                ? " w-fit text-center p-2 rounded-xl font-bold bg-white "
-                : " "
+              pathname.endsWith("/Logout")
+                ? " w-fit text-center p-[12px] rounded-xl font-bold bg-white  cursor-pointer"
+                : " cursor-pointer"
+            }>
+            Logout
+          </button>
+        </Link>
+      ) : (
+        <Link href="/login">
+          <button
+            className={
+              pathname.endsWith("/Login")
+                ? " w-fit text-center p-[12px] rounded-xl font-bold bg-white "
+                : " cursor-pointer"
             }>
             Login
           </button>
