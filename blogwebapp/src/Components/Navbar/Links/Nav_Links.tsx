@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import path from "path";
-const Links: React.FC = () => {
+
+const Nav_links = () => {
   const Links: Array<{ name: string; path: string }> = [
     {
-      name: "HomePage",
+      name: "Home",
       path: "/",
     },
     {
@@ -22,11 +22,13 @@ const Links: React.FC = () => {
     },
   ];
   const pathname = usePathname();
-  var isSession = true;
+  var isSession = false;
   let isactive;
-  var isadmin = false;
+  var isadmin = true;
   return (
-    <div className="flex-1 flex flex-row items-center justify-end gap-[14px]">
+    <div
+      className=" flex-1 flex flex-col relative right-[30%]
+    top-[200px] sm:top-0 sm:right-0 sm:flex-row items-center justify-end gap-[14px]">
       {Links.map((link, index) => {
         isactive = pathname.endsWith(link.path);
 
@@ -63,7 +65,7 @@ const Links: React.FC = () => {
         <Link href="/login">
           <button
             className={
-              pathname.endsWith("/Logout")
+              pathname.endsWith("/login")
                 ? " w-fit text-center p-[12px] rounded-xl font-bold bg-white  cursor-pointer"
                 : " cursor-pointer"
             }>
@@ -74,7 +76,7 @@ const Links: React.FC = () => {
         <Link href="/login">
           <button
             className={
-              pathname.endsWith("/Login")
+              pathname.endsWith("/login")
                 ? " w-fit text-center p-[12px] rounded-xl font-bold bg-white "
                 : " cursor-pointer"
             }>
@@ -86,4 +88,4 @@ const Links: React.FC = () => {
   );
 };
 
-export default Links;
+export default Nav_links;
