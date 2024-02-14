@@ -51,7 +51,7 @@ const Nav_links = () => {
           <button
             className={
               pathname.endsWith("/admin")
-                ? " w-fit text-center p-[12px] rounded-xl font-bold bg-white  cursor-pointer "
+                ? " w-fit text-center p-[12px] rounded-full font-bold bg-white  cursor-pointer "
                 : "cursor-pointer "
             }>
             Admin
@@ -66,7 +66,7 @@ const Nav_links = () => {
           <button
             className={
               pathname.endsWith("/login")
-                ? " w-fit text-center p-[12px] rounded-xl font-bold bg-white  cursor-pointer"
+                ? " w-fit text-center p-[12px] rounded-full font-bold bg-white  cursor-pointer"
                 : " cursor-pointer"
             }>
             Logout
@@ -77,7 +77,7 @@ const Nav_links = () => {
           <button
             className={
               pathname.endsWith("/login")
-                ? " w-fit text-center p-[12px] rounded-xl font-bold bg-white "
+                ? " w-fit text-center p-[12px] rounded-full font-bold bg-white "
                 : " cursor-pointer"
             }>
             Login

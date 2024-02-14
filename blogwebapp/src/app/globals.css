@@ -1,37 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* :root {
-  --bg: white;
-  --text: black;
-  --btn: #3673fd;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--white);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.container {
-  background-color: #3673fd;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  margin: auto;
-  padding-left: 50px;
-  padding-left: 50px;
-  height: 100vh;
-} */
