@@ -7,7 +7,7 @@ const Mobile_Links: React.FC = () => {
   const [isOpen, setIsopen] = useState<Boolean>(false);
 
   return (
-    <div className="absolute right-0 sm:hidden">
+    <div className="absolute right-0 sm:hidden z-50">
       <button
         onClick={() => setIsopen(!isOpen)}
         className="flex flex-col mr-[50px] justify-between items-center cursor-pointer sm:hidden  ">
@@ -23,7 +23,7 @@ const Mobile_Links: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className=" sm:hidden fixed top-0 right-0 w-[50%] h-full p-4 text-center  bg-red-100 animate-custom-menu">
+        <div className=" sm:hidden fixed top-0 right-0 w-[50%] h-full p-4 text-center bg-gray-100 animate-custom-menu  ease-in-out">
           <div className="relative">
             <button
               type="button"

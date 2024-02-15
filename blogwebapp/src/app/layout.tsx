@@ -14,11 +14,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className=" bg-red-50 w-[100%] flex flex-col justify-between m-auto pl-[50px] pr-[50px] min-h-screen">
+        <div className=" max-w-screen-2xl flex flex-col justify-between m-auto pl-[50px] pr-[50px] min-h-screen">
           <header>
             <Navbar />
           </header>
-          {children}
+          <div className="items-center">{children}</div>
           <footer>
             <Footer />
           </footer>
