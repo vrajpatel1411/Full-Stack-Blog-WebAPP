@@ -1,7 +1,5 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
+import Nav_button from "./Nav_button";
 const Nav_links = () => {
   const Links: Array<{ name: string; path: string }> = [
     {
@@ -21,68 +19,45 @@ const Nav_links = () => {
       path: "/blog",
     },
   ];
-  const pathname = usePathname();
+
   var isSession = false;
-  let isactive;
   var isadmin = true;
   return (
     <div
       className=" flex-1 flex flex-col relative right-[30%]
     top-[200px] sm:top-0 sm:right-0 sm:flex-row items-center justify-end gap-[14px]">
       {Links.map((link, index) => {
-        isactive = pathname.endsWith(link.path);
-
         return (
-          <Link
-            className={
-              isactive
-                ? " w-fit text-center p-[12px] rounded-lg font-bold bg-gray-200 cursor-pointer "
-                : " cursor-pointer"
-            }
+          <Nav_button
             key={index}
-            href={link.path}>
-            {link.name}
-          </Link>
+            link={link}
+          />
         );
       })}
-
       {isadmin ? (
-        <Link href="/admin">
-          <button
-            className={
-              pathname.endsWith("/admin")
-                ? " w-fit text-center p-[12px] rounded-lg font-bold bg-gray-200  cursor-pointer "
-                : "cursor-pointer "
-            }>
-            Admin
-          </button>
-        </Link>
+        <Nav_button
+          link={{
+            name: "Admin",
+            path: "/admin",
+          }}
+        />
       ) : (
         ""
       )}
-
       {isSession ? (
-        <Link href="/login">
-          <button
-            className={
-              pathname.endsWith("/login")
-                ? " w-fit text-center p-[12px] rounded-lg font-bold bg-gray-200  cursor-pointer"
-                : " cursor-pointer"
-            }>
-            Logout
-          </button>
-        </Link>
+        <Nav_button
+          link={{
+            name: "LogOut",
+            path: "/login",
+          }}
+        />
       ) : (
-        <Link href="/login">
-          <button
-            className={
-              pathname.endsWith("/login")
-                ? " w-fit text-center p-[12px] rounded-lg font-bold bg-gray-200 "
-                : " cursor-pointer"
-            }>
-            Login
-          </button>
-        </Link>
+        <Nav_button
+          link={{
+            name: "Login",
+            path: "/login",
+          }}
+        />
       )}
     </div>
   );

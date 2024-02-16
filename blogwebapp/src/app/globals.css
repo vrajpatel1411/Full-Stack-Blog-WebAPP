@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .card {
+    @apply rounded-lg flex flex-col flex-grow-0 flex-shrink-0 gap-1 p-3 bg-titan-white;
+  }
+  .card_stats {
+    @apply text-xl text-indigo font-semibold;
+  }
+  .card_title {
+    @apply text-sm text-indigo;
+  }
+}
